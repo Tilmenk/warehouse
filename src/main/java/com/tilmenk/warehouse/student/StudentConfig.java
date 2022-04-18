@@ -18,7 +18,7 @@ public class StudentConfig {
                     LocalDate.of(2000, Month.APRIL, 22));
             Student alex = new Student("Alex", "alex.jamal@gmail.com",
                     LocalDate.of(2004, Month.APRIL, 22));
-            if (!System.getenv("DEPLOYMENT_ENV").equals("dev")) {
+            if (System.getenv("DEPLOYMENT_ENV").equals("dev")) {
                 repository.saveAll(List.of(mariam, alex));
             }
         };
