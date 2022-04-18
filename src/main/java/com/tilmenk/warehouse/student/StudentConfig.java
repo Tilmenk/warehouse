@@ -14,16 +14,13 @@ public class StudentConfig {
     @Bean
     CommandLineRunner commandLineRunner(StudentRepository repository) {
         return args -> {
-            Student mariam = new Student(
-                    "Mariam",
-                    "mariam.jamal@gmail.com",
+            Student mariam = new Student("Mariam", "mariam.jamal@gmail.com",
                     LocalDate.of(2000, Month.APRIL, 22));
-            Student alex = new Student(
-                    "Alex",
-                    "alex.jamal@gmail.com",
+            Student alex = new Student("Alex", "alex.jamal@gmail.com",
                     LocalDate.of(2004, Month.APRIL, 22));
-
-            repository.saveAll(List.of(mariam, alex));
+            if (!System.getenv("DEPLOYMENT_ENV").equals("dev")) {
+                repository.saveAll(List.of(mariam, alex));
+            }
         };
     }
 }
