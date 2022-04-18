@@ -10,9 +10,9 @@
     </parent>
     <groupId>com.tilmenk</groupId>
     <artifactId>warehouse</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>warehouse</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Warehouse for KBE_Project @HTW-Berlin</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -49,6 +49,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
         </plugins>
     </build>
 
