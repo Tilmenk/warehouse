@@ -3,12 +3,10 @@ version: '2'
 services:
   app:
     image: 'kbe-warehouse:latest'
-    build:
-      context: .
+    build: .
     ports:
       - "127.0.0.1:8080:8080"
     container_name: warehouse
-
     depends_on:
       - db
     environment:
