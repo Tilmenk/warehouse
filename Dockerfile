@@ -5,8 +5,6 @@ FROM maven:3.6.3-openjdk-17 AS build
 # COPY src /home/app/src
 # COPY pom.xml /home/app
 # RUN mvn -f /home/app/pom.xml clean package -DskipTests
-
-
 ENV HOME=/usr/app
 RUN mkdir -p $HOME
 WORKDIR $HOME
