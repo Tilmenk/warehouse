@@ -2,8 +2,8 @@ version: '2'
 
 services:
   app:
-    #image: 'kbe-warehouse:latest'
     build: .
+    #image: 'kbe-warehouse:latest'
     ports:
       - "127.0.0.1:8080:8080"
     container_name: warehouse
