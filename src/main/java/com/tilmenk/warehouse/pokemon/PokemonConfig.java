@@ -1,26 +1,29 @@
 package com.tilmenk.warehouse.pokemon;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
+import java.util.Objects;
 
 @Configuration
 public class PokemonConfig {
+    @Autowired
+    private Environment env;
 
     @Bean
-    CommandLineRunner commandLineRunner(StudentRepository repository) {
+    CommandLineRunner commandLineRunner(PokemonRepository pokemonRepository) {
         return args -> {
-            Student mariam = new Student("Mariam", "mariam.jamal@gmail.com",
-                    LocalDate.of(2000, Month.APRIL, 22));
-            Student alex = new Student("Alex", "alex.jamal@gmail.com",
-                    LocalDate.of(2004, Month.APRIL, 22));
-            if (System.getenv("DEPLOYMENT_ENV").equals("dev")) {
-                repository.saveAll(List.of(mariam, alex));
+            Pokemon pikachu = new Pokemon("pikachu", "Electric", "none", 60,
+                    45, 49, 65, 65, 45, false, 5);
+            Pokemon bulbasaur = new Pokemon("bulbasaur", "Grass", "Poison",
+                    45, 49, 49, 65, 65, 45, false, 3);
+            if (Objects.equals(env.getProperty("DEPLOYMENT_ENV"), "dev")) {
+                pokemonRepository.saveAll(List.of(pikachu, bulbasaur));
             }
         };
     }

@@ -12,9 +12,9 @@ public class Pokemon {
     @Id
     private String name;
 
-    private String typ1;
+    private String type1;
 
-    private String typ2;
+    private String type2;
 
 
     private Integer health;
@@ -31,18 +31,18 @@ public class Pokemon {
 
     private Integer speed;
 
-    private Integer anzahlAufLager;
+    private Integer amountInStock;
 
     @Transient
     private Integer costs;
 
     public Pokemon(String name, String typ1, String typ2, Integer health,
                    Integer attack, Integer defense, Integer attack_sp,
-                   Integer defense_sp, boolean legendary, Integer speed,
+                   Integer defense_sp, Integer speed, boolean legendary,
                    Integer anzahlAufLager) {
         this.name = name;
-        this.typ1 = typ1;
-        this.typ2 = typ2;
+        this.type1 = typ1;
+        this.type2 = typ2;
         this.health = health;
         this.attack = attack;
         this.defense = defense;
@@ -50,7 +50,7 @@ public class Pokemon {
         this.defense_sp = defense_sp;
         this.legendary = legendary;
         this.speed = speed;
-        this.anzahlAufLager = anzahlAufLager;
+        this.amountInStock = anzahlAufLager;
     }
 
     public Pokemon() {
@@ -65,20 +65,20 @@ public class Pokemon {
         this.name = name;
     }
 
-    public String getTyp1() {
-        return typ1;
+    public String getType1() {
+        return type1;
     }
 
-    public void setTyp1(String typ1) {
-        this.typ1 = typ1;
+    public void setType1(String typ1) {
+        this.type1 = typ1;
     }
 
-    public String getTyp2() {
-        return typ2;
+    public String getType2() {
+        return type2;
     }
 
-    public void setTyp2(String typ2) {
-        this.typ2 = typ2;
+    public void setType2(String typ2) {
+        this.type2 = typ2;
     }
 
     public Integer getHealth() {
@@ -137,12 +137,12 @@ public class Pokemon {
         this.speed = speed;
     }
 
-    public Integer getAnzahlAufLager() {
-        return anzahlAufLager;
+    public Integer getAmountInStock() {
+        return amountInStock;
     }
 
-    public void setAnzahlAufLager(Integer anzahlAufLager) {
-        this.anzahlAufLager = anzahlAufLager;
+    public void setAmountInStock(Integer anzahlAufLager) {
+        this.amountInStock = anzahlAufLager;
     }
 
     public Integer getCosts() {
@@ -154,6 +154,6 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return "Pokemon{" + "name='" + name + '\'' + ", typ1='" + typ1 + '\'' + ", typ2='" + typ2 + '\'' + ", health=" + health + ", attack=" + attack + ", defense=" + defense + ", attack_sp=" + attack_sp + ", defense_sp=" + defense_sp + ", legendary=" + legendary + ", speed=" + speed + ", anzahlAufLager=" + anzahlAufLager + ", costs=" + costs + '}';
+        return "Pokemon{" + "name='" + name + '\'' + ", typ1='" + type1 + '\'' + ", typ2='" + type2 + '\'' + ", health=" + health + ", attack=" + attack + ", defense=" + defense + ", attack_sp=" + attack_sp + ", defense_sp=" + defense_sp + ", legendary=" + legendary + ", speed=" + speed + ", anzahlAufLager=" + amountInStock + ", costs=" + costs + '}';
     }
 }

@@ -64,10 +64,7 @@ public class Student {
         return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
+  
     public LocalDate getDob() {
         return dob;
     }
@@ -78,8 +75,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", name='" + name + '\'' + ", email" +
-                "='" + email + '\'' + ", age=" + age + ", dob=" + dob + '}';
+        return "Student{" + "id=" + id + ", name='" + name + '\'' + ", email" + "='" + email + '\'' + ", age=" + age + ", dob=" + dob + '}';
     }
 }
 
