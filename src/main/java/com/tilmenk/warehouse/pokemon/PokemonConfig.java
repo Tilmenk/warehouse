@@ -16,7 +16,7 @@ public class PokemonConfig {
     private Environment env;
 
     @Bean
-    CommandLineRunner commandLineRunner(PokemonRepository pokemonRepository) {
+    CommandLineRunner commandLineRunnerPokemon(PokemonRepository pokemonRepository) {
         return args -> {
             Pokemon pikachu = new Pokemon("pikachu", "Electric", "none", 60,
                     45, 49, 65, 65, 45, false, 5);

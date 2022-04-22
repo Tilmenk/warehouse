@@ -2,7 +2,6 @@ package com.tilmenk.warehouse.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -17,7 +16,6 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    @GetMapping
     public List<Student> getStudents() {
         return studentRepository.findAll();
     }
