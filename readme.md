@@ -12,7 +12,8 @@ Configuration `dockerCompose` <br/>
 
 #### deploying the project
 
-A heroku dyno is configured and all you have to do to deploy to prod is this: `git push heroku master`
+A heroku dyno is configured and all you have to do to deploy to prod is this: `git push heroku master` ( if youre logged
+in to Heroku )
 
 #### API docs
 
