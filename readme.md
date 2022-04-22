@@ -15,7 +15,7 @@ Configuration `dockerCompose` <br/>
 A heroku dyno is configured and all you have to do to deploy to prod is this: `git push heroku master` ( if youre logged
 in to Heroku )
 
-heroku domain is: kbe-warehouse.herokuapp.com
+heroku domain: **kbe-warehouse.herokuapp.com**
 
 #### API docs
 
