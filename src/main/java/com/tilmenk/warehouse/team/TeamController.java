@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,12 +28,6 @@ public class TeamController {
     public List<Team> getTeams() {
         System.out.println("test");
         return teamService.getTeams();
-    }
-
-    @Operation(summary = "create a team")
-    @PostMapping
-    public void createTeam() {
-        teamService.createTeam();
     }
 
 
