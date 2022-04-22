@@ -19,10 +19,8 @@ public class PokemonController {
     }
 
     @GetMapping
-    public List<Pokemon> getStudents() {
-        System.out.println("test");
+    public List<Pokemon> getPokemon() {
         return pokemonService.getPokemon();
     }
-
 
 }

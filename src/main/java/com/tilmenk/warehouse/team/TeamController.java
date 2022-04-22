@@ -1,5 +1,6 @@
 package com.tilmenk.warehouse.team;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,14 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api" + "/team")
+@AllArgsConstructor
 public class TeamController {
-
-    private final TeamService teamService;
-
     @Autowired
-    public TeamController(TeamService teamService) {
-        this.teamService = teamService;
-    }
+    private final TeamService teamService;
 
     @GetMapping
     public List<Team> getTeams() {
@@ -26,8 +23,8 @@ public class TeamController {
     }
 
     @PostMapping
-    public List<Team> createTeam() {
-        return teamService.getTeams();
+    public void createTeam() {
+        teamService.createTeam();
     }
 
 

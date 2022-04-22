@@ -16,14 +16,14 @@ public class PokemonConfig {
     private Environment env;
 
     @Bean
-    CommandLineRunner commandLineRunnerPokemon(PokemonRepository pokemonRepository) {
+    CommandLineRunner commandLineRunnerPokemon(PokemonRepository repository) {
         return args -> {
             Pokemon pikachu = new Pokemon("pikachu", "Electric", "none", 60,
-                    45, 49, 65, 65, 45, false, 5);
+                    45, 49, 65, 65, 45, false);
             Pokemon bulbasaur = new Pokemon("bulbasaur", "Grass", "Poison",
-                    45, 49, 49, 65, 65, 45, false, 3);
+                    45, 49, 49, 65, 65, 45, false);
             if (Objects.equals(env.getProperty("DEPLOYMENT_ENV"), "dev")) {
-                pokemonRepository.saveAll(List.of(pikachu, bulbasaur));
+                repository.saveAll(List.of(pikachu, bulbasaur));
             }
         };
     }

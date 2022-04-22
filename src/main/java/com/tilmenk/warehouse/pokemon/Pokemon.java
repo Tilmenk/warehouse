@@ -27,19 +27,17 @@ public class Pokemon {
 
     private Integer defense_sp;
 
-    private boolean legendary;
-
     private Integer speed;
 
-    private Integer amountInStock;
+    private boolean legendary;
+
 
     @Transient
     private Integer costs;
 
     public Pokemon(String name, String typ1, String typ2, Integer health,
                    Integer attack, Integer defense, Integer attack_sp,
-                   Integer defense_sp, Integer speed, boolean legendary,
-                   Integer anzahlAufLager) {
+                   Integer defense_sp, Integer speed, boolean legendary) {
         this.name = name;
         this.type1 = typ1;
         this.type2 = typ2;
@@ -48,9 +46,9 @@ public class Pokemon {
         this.defense = defense;
         this.attack_sp = attack_sp;
         this.defense_sp = defense_sp;
-        this.legendary = legendary;
         this.speed = speed;
-        this.amountInStock = anzahlAufLager;
+        this.legendary = legendary;
+
     }
 
     public Pokemon() {
@@ -137,14 +135,6 @@ public class Pokemon {
         this.speed = speed;
     }
 
-    public Integer getAmountInStock() {
-        return amountInStock;
-    }
-
-    public void setAmountInStock(Integer anzahlAufLager) {
-        this.amountInStock = anzahlAufLager;
-    }
-
     public Integer getCosts() {
         int tempCosts =
                 (this.attack + this.attack_sp + this.defense + this.defense_sp + this.speed + this.health) / 6;
@@ -154,6 +144,6 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return "Pokemon{" + "name='" + name + '\'' + ", typ1='" + type1 + '\'' + ", typ2='" + type2 + '\'' + ", health=" + health + ", attack=" + attack + ", defense=" + defense + ", attack_sp=" + attack_sp + ", defense_sp=" + defense_sp + ", legendary=" + legendary + ", speed=" + speed + ", anzahlAufLager=" + amountInStock + ", costs=" + costs + '}';
+        return "Pokemon{" + "name='" + name + '\'' + ", typ1='" + type1 + '\'' + ", typ2='" + type2 + '\'' + ", health=" + health + ", attack=" + attack + ", defense=" + defense + ", attack_sp=" + attack_sp + ", defense_sp=" + defense_sp + ", legendary=" + legendary + ", speed=" + speed + ", anzahlAufLager=" + ", costs=" + costs + '}';
     }
 }
