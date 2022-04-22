@@ -2,7 +2,7 @@
 
 ### description
 
-This **SpringBoot** + **Maven** Project consists of a Restful API and a PostgresqlDB<br/>
+This **SpringBoot** + **Maven** Project consists of a Restful API and a Postgresql-DB<br/>
 It uses **Java 17** and **Postgresql 3**<br/>
 
 #### running the project
@@ -15,6 +15,10 @@ Configuration `dockerCompose` <br/>
 A heroku dyno is configured and all you have to do to deploy to prod is this: `git push heroku master` ( if youre logged
 in to Heroku )
 
+heroku domain is: kbe-warehouse.herokuapp.com
+
 #### API docs
 
 ![alt text](./readMeResources/swagger.png)
+
+https://kbe-warehouse.herokuapp.com/swagger
