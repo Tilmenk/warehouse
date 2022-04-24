@@ -26,16 +26,18 @@ public class CSVRead {
         return listOfRows;
     }
 
-    public List<Pokemon> readPokemon(String path) throws Exception {
+    public List<?> readPokemon(String path) throws Exception {
+
         List<Pokemon> pokemonList = new ArrayList<>();
         Reader reader = Files.newBufferedReader(Paths.get(
                 ClassLoader.getSystemResource(path).toURI()));
         CSVParser parser = new CSVParserBuilder().withSeparator(';').withIgnoreQuotations(true).build();
         CSVReader csvreader = new CSVReaderBuilder(reader).withSkipLines(0).withCSVParser(parser).build();
-        List<String[]> readPokemonStrings =  readLines(csvreader);
-        for (String[] pokemon: readPokemonStrings
+
+        List<String[]> readStrings =  readLines(csvreader);
+        for (String[] strings: readStrings
              ) {
-            pokemonList.add(pokemonParser(pokemon));
+            pokemonList.add(pokemonParser(strings));
         }
         return pokemonList;
     }
