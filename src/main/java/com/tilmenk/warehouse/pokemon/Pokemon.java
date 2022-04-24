@@ -48,11 +48,9 @@ public class Pokemon {
         this.defense_sp = defense_sp;
         this.speed = speed;
         this.legendary = legendary;
-
     }
 
     public Pokemon() {
-
     }
 
     public String getName() {
