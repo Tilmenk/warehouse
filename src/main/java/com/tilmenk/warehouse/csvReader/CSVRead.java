@@ -2,6 +2,7 @@ package com.tilmenk.warehouse.csvReader;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -14,29 +15,34 @@ import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvValidationException;
 import com.tilmenk.warehouse.pokemon.Pokemon;
 
+
 public class CSVRead {
 
-    List<String[]> readLines(CSVReader reader) throws CsvValidationException, IOException {
+    List<String[]> readLines(String path) throws CsvValidationException, IOException, URISyntaxException {
+        Reader reader = Files.newBufferedReader(Paths.get(
+                ClassLoader.getSystemResource(path).toURI()));
+        CSVParser parser = new CSVParserBuilder().withSeparator(';').withIgnoreQuotations(true).build();
+        CSVReader csvreader = new CSVReaderBuilder(reader).withSkipLines(0).withCSVParser(parser).build();
         List<String[]> listOfRows = new ArrayList<>();
         String[] line;
-        while((line = reader.readNext()) != null) {
+        while ((line = csvreader.readNext()) != null) {
             listOfRows.add(line);
         }
         reader.close();
         return listOfRows;
     }
 
-    public List<?> readPokemon(String path) throws Exception {
-
+    List<Pokemon> readPokemon(String path) {
+        List<String[]> readStrings = new ArrayList<>();
         List<Pokemon> pokemonList = new ArrayList<>();
-        Reader reader = Files.newBufferedReader(Paths.get(
-                ClassLoader.getSystemResource(path).toURI()));
-        CSVParser parser = new CSVParserBuilder().withSeparator(';').withIgnoreQuotations(true).build();
-        CSVReader csvreader = new CSVReaderBuilder(reader).withSkipLines(0).withCSVParser(parser).build();
-
-        List<String[]> readStrings =  readLines(csvreader);
-        for (String[] strings: readStrings
-             ) {
+        try {
+            readStrings = readLines(path);
+        } catch (Exception e) {
+            System.err.println(e.getCause() + " // " + e.getMessage());
+        }
+        if(readStrings.isEmpty()) return null;
+        for (String[] strings : readStrings
+        ) {
             pokemonList.add(pokemonParser(strings));
         }
         return pokemonList;
