@@ -38,6 +38,9 @@ public class WarehouseConfig {
                 pokemonRepository.saveAll(List.of(pikachu, bulbasaur));
                 teamRepository.save(team);
             }
+            // TODO Here comes the CSV-Calls
+            Pokemon pokemon = pokemonRepository.findPokemonByName("pikachu");
+            //Find All -> No doubles.
         };
     }
 }
