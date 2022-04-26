@@ -18,7 +18,7 @@ import com.tilmenk.warehouse.pokemon.Pokemon;
 
 public class CSVRead {
 
-    List<String[]> readLines(String path) throws CsvValidationException, IOException, URISyntaxException {
+    static List<String[]> readLines(String path) throws CsvValidationException, IOException, URISyntaxException {
         Reader reader = Files.newBufferedReader(Paths.get(
                 ClassLoader.getSystemResource(path).toURI()));
         CSVParser parser = new CSVParserBuilder().withSeparator(';').withIgnoreQuotations(true).build();
@@ -32,7 +32,7 @@ public class CSVRead {
         return listOfRows;
     }
 
-    List<Pokemon> readPokemon(String path) {
+    static List<Pokemon> readPokemon(String path) {
         List<String[]> readStrings = new ArrayList<>();
         List<Pokemon> pokemonList = new ArrayList<>();
         try {

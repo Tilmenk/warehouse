@@ -1,0 +1,5 @@
+#;Name;Type 1;Type 2;HP;Attack;Defense;Sp. Atk;Sp. Def;Speed;Generation;Legendary
+1;bulbasaur;Grass;Poison;45;49;49;65;65;45;1;False
+2;ivysaur;Grass;Poison;60;62;63;80;80;60;1;False
+3;venusaur;Grass;Poison;80;82;83;100;100;80;1;False
+3;venusaurmega venusaur;Grass;Poison;80;100;123;122;120;80;1;False

@@ -2,40 +2,29 @@ package com.tilmenk.warehouse.csvReader;
 
 import com.tilmenk.warehouse.pokemon.Pokemon;
 import org.junit.jupiter.api.Test;
+import com.tilmenk.warehouse.csvReader.CSVRead.*;
 
-import static com.tilmenk.warehouse.csvReader.CSVRead.pokemonParser;
+import java.util.List;
+
+import static com.tilmenk.warehouse.csvReader.CSVRead.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TestCSVRead {
 
     @Test
-    void readLines() {
-        //GIVEN
-
-        //WHEN
-
-        //THEN
-
-    }
-
-    @Test
-    void readPokemon() {
-        //GIVEN
-
-        //WHEN
-
-        //THEN
-
-    }
-
-    @Test
     void testReadLines() {
         //GIVEN
-
+        String path = "./testCSV.test";
         //WHEN
-
+        List<String[]> result = null;
+        try {
+            result = readLines(path);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            fail();
+        }
         //THEN
-
+        assertEquals(4, result.size());
     }
 
     @Test
