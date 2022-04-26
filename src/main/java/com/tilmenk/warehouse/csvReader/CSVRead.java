@@ -1,5 +1,7 @@
 package com.tilmenk.warehouse.csvReader;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.net.URISyntaxException;
@@ -19,8 +21,7 @@ import com.tilmenk.warehouse.pokemon.Pokemon;
 public class CSVRead {
 
     static List<String[]> readLines(String path) throws CsvValidationException, IOException, URISyntaxException {
-        Reader reader = Files.newBufferedReader(Paths.get(
-                ClassLoader.getSystemResource(path).toURI()));
+        Reader reader = new BufferedReader(new FileReader(path));
         CSVParser parser = new CSVParserBuilder().withSeparator(';').withIgnoreQuotations(true).build();
         CSVReader csvreader = new CSVReaderBuilder(reader).withSkipLines(0).withCSVParser(parser).build();
         List<String[]> listOfRows = new ArrayList<>();

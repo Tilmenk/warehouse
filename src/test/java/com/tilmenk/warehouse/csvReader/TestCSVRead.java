@@ -4,6 +4,8 @@ import com.tilmenk.warehouse.pokemon.Pokemon;
 import org.junit.jupiter.api.Test;
 import com.tilmenk.warehouse.csvReader.CSVRead.*;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static com.tilmenk.warehouse.csvReader.CSVRead.*;
@@ -14,7 +16,7 @@ class TestCSVRead {
     @Test
     void testReadLines() {
         //GIVEN
-        String path = "./testCSV.test";
+        String path = "/test/com.tilmenk.warehouse/csvReader/testCSV.csv";
         //WHEN
         List<String[]> result = null;
         try {
@@ -30,7 +32,7 @@ class TestCSVRead {
     @Test
     void testReadPokemon() {
         //GIVEN
-
+        fail();
         //WHEN
 
         //THEN
