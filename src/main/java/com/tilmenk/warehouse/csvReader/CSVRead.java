@@ -1,59 +1,39 @@
 package com.tilmenk.warehouse.csvReader;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.opencsv.CSVParser;
-import com.opencsv.CSVParserBuilder;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
-import com.opencsv.exceptions.CsvValidationException;
 import com.tilmenk.warehouse.pokemon.Pokemon;
 
 
 public class CSVRead {
+    private CustomReader reader;
+
+    public CSVRead(CustomReader reader) {
+        this.reader = reader;
+    }
 
     public CSVRead() {
+        this.reader = new CustomReader();
     }
 
-
-    static List<String[]> readLines(String path) throws CsvValidationException, IOException, URISyntaxException {
-        Reader reader = new BufferedReader(new FileReader(path));
-        CSVParser parser = new CSVParserBuilder().withSeparator(';').withIgnoreQuotations(true).build();
-        CSVReader csvreader = new CSVReaderBuilder(reader).withSkipLines(0).withCSVParser(parser).build();
-        List<String[]> listOfRows = new ArrayList<>();
-        String[] line;
-        while ((line = csvreader.readNext()) != null) {
-            listOfRows.add(line);
-        }
-        reader.close();
-        return listOfRows;
-    }
-
-    static List<Pokemon> readPokemon(String path) {
+    List<Pokemon> readPokemon(String path) {
         List<String[]> readStrings = new ArrayList<>();
         List<Pokemon> pokemonList = new ArrayList<>();
         try {
-            readStrings = readLines(path);
+            readStrings = reader.readLines(path);
         } catch (Exception e) {
             System.err.println(e.getCause() + " // " + e.getMessage());
         }
         if (readStrings.isEmpty()) return null;
         for (String[] strings : readStrings
         ) {
-            pokemonList.add(pokemonParser(strings));
+            pokemonList.add(parsePokemon(strings));
         }
         return pokemonList;
     }
 
-    static Pokemon pokemonParser(String[] readPokemon) {
+    static Pokemon parsePokemon(String[] readPokemon) {
         return new Pokemon(
                 readPokemon[0], //string name
                 readPokemon[1], //string typ1

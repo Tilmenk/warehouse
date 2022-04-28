@@ -1,42 +1,36 @@
 package com.tilmenk.warehouse.csvReader;
 
+import com.opencsv.exceptions.CsvValidationException;
+import com.tilmenk.warehouse.csvReader.CSVRead.*;
 import com.tilmenk.warehouse.pokemon.Pokemon;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
-import static com.tilmenk.warehouse.csvReader.CSVRead.pokemonParser;
-import static com.tilmenk.warehouse.csvReader.CSVRead.readLines;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.tilmenk.warehouse.csvReader.CSVRead.parsePokemon;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.fail;
 
 class TestCSVRead {
 
     @Test
-    void testReadLines() {
+    void testReadPokemon() throws CsvValidationException, IOException, URISyntaxException {
         //GIVEN
-        String path = "/src/test/com.tilmenk.warehouse/csvReader/testCSV.csv";
+        CustomReader readerMock = Mockito.mock(CustomReader.class);
+        List<String[]> list = new ArrayList<>();
+        String[] readString = {"pikachu", "electric","", "60", "45", "49", "65", "65", "45","false" };
+        list.add(readString);
+        String dummyPath = "dummy/Path";
+        CSVRead reader = new CSVRead(readerMock);
         //WHEN
-        List<String[]> result = null;
-        try {
-            result = readLines(path);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            fail();
-        }
+        Mockito.when(readerMock.readLines(dummyPath)).thenReturn(list);
+        List<Pokemon> res = reader.readPokemon(dummyPath);
         //THEN
-        assertEquals(4, result.size());
-    }
-
-    @Test
-    void testReadPokemon() {
-        //GIVEN
-       fail();
-        //WHEN
-
-        //THEN
-
+        assertEquals(1, res.size());
     }
 
     @Test
@@ -46,7 +40,7 @@ class TestCSVRead {
         Pokemon pikachu =  new Pokemon("pikachu", "electric", "", 60, 45,
                 49, 65, 65, 45, false);
         //WHEN
-        Pokemon pokemon = pokemonParser(readString);
+        Pokemon pokemon = parsePokemon(readString);
         //THEN
         assertEquals(pikachu.getName(), pokemon.getName());
         assertEquals(pikachu.getType1(), pokemon.getType1());
