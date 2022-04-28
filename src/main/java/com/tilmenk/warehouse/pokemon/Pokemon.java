@@ -51,7 +51,6 @@ public class Pokemon {
     }
 
     public Pokemon() {
-
     }
 
     public String getName() {

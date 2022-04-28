@@ -44,6 +44,9 @@ public class WarehouseConfig {
                 pokemonService.savePokemon(bulbasaur);
                 teamService.saveTeam(team);
             }
+            // TODO Here comes the CSV-Calls
+            Pokemon pokemon = pokemonRepository.findPokemonByName("pikachu");
+            //Find All -> No doubles.
         };
     }
 }
