@@ -3,6 +3,7 @@ package com.tilmenk.warehouse.team;
 import com.tilmenk.warehouse.pokemon.Pokemon;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -15,44 +16,24 @@ public class Team {
             "student_sequence")
     private Long id;
 
-    @ManyToOne
-    private Pokemon pokemon_0;
-    @ManyToOne
-    private Pokemon pokemon_1;
-    @ManyToOne
-    private Pokemon pokemon_2;
-    @ManyToOne
-    private Pokemon pokemon_3;
-    @ManyToOne
-    private Pokemon pokemon_4;
-    @ManyToOne
-    private Pokemon pokemon_5;
+    @ManyToMany
+    private List<Pokemon> pokemon;
 
+    private String name;
 
     public Team() {
 
     }
 
-    public Team(Long id, Pokemon pokemon_0, Pokemon pokemon_1,
-                Pokemon pokemon_2, Pokemon pokemon_3, Pokemon pokemon_4,
-                Pokemon pokemon_5) {
+    public Team(Long id, List<Pokemon> pokemon, String name) {
         this.id = id;
-        this.pokemon_0 = pokemon_0;
-        this.pokemon_1 = pokemon_1;
-        this.pokemon_2 = pokemon_2;
-        this.pokemon_3 = pokemon_3;
-        this.pokemon_4 = pokemon_4;
-        this.pokemon_5 = pokemon_5;
+        this.pokemon = pokemon;
+        this.name = name;
     }
 
-    public Team(Pokemon pokemon_0, Pokemon pokemon_1, Pokemon pokemon_2,
-                Pokemon pokemon_3, Pokemon pokemon_4, Pokemon pokemon_5) {
-        this.pokemon_0 = pokemon_0;
-        this.pokemon_1 = pokemon_1;
-        this.pokemon_2 = pokemon_2;
-        this.pokemon_3 = pokemon_3;
-        this.pokemon_4 = pokemon_4;
-        this.pokemon_5 = pokemon_5;
+    public Team(List<Pokemon> pokemon, String name) {
+        this.pokemon = pokemon;
+        this.name = name;
     }
 
     public Long getId() {
@@ -63,51 +44,19 @@ public class Team {
         this.id = id;
     }
 
-    public Pokemon getPokemon_0() {
-        return pokemon_0;
+    public List<Pokemon> getPokemon() {
+        return pokemon;
     }
 
-    public void setPokemon_0(Pokemon pokemon_0) {
-        this.pokemon_0 = pokemon_0;
+    public void setPokemon(List<Pokemon> pokemon) {
+        this.pokemon = pokemon;
     }
 
-    public Pokemon getPokemon_1() {
-        return pokemon_1;
+    public String getName() {
+        return name;
     }
 
-    public void setPokemon_1(Pokemon pokemon_1) {
-        this.pokemon_1 = pokemon_1;
-    }
-
-    public Pokemon getPokemon_2() {
-        return pokemon_2;
-    }
-
-    public void setPokemon_2(Pokemon pokemon_2) {
-        this.pokemon_2 = pokemon_2;
-    }
-
-    public Pokemon getPokemon_3() {
-        return pokemon_3;
-    }
-
-    public void setPokemon_3(Pokemon pokemon_3) {
-        this.pokemon_3 = pokemon_3;
-    }
-
-    public Pokemon getPokemon_4() {
-        return pokemon_4;
-    }
-
-    public void setPokemon_4(Pokemon pokemon_4) {
-        this.pokemon_4 = pokemon_4;
-    }
-
-    public Pokemon getPokemon_5() {
-        return pokemon_5;
-    }
-
-    public void setPokemon_5(Pokemon pokemon_5) {
-        this.pokemon_5 = pokemon_5;
+    public void setName(String name) {
+        this.name = name;
     }
 }
