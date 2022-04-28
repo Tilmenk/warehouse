@@ -1,7 +1,6 @@
 package com.tilmenk.warehouse.csvReader;
 
 import com.opencsv.exceptions.CsvValidationException;
-import com.tilmenk.warehouse.csvReader.CSVRead.*;
 import com.tilmenk.warehouse.pokemon.Pokemon;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -12,8 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.tilmenk.warehouse.csvReader.CSVRead.parsePokemon;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestCSVRead {
 
@@ -31,6 +29,20 @@ class TestCSVRead {
         List<Pokemon> res = reader.readPokemon(dummyPath);
         //THEN
         assertEquals(1, res.size());
+    }
+
+    @Test
+    void testReadPokemonEmpty() throws CsvValidationException, IOException, URISyntaxException {
+        //GIVEN
+        CustomReader readerMock = Mockito.mock(CustomReader.class);
+        List<String[]> list = new ArrayList<>();
+        String dummyPath = "dummy/Path";
+        CSVRead reader = new CSVRead(readerMock);
+        //WHEN
+        Mockito.when(readerMock.readLines(dummyPath)).thenReturn(list);
+        List<Pokemon> res = reader.readPokemon(dummyPath);
+        //THEN
+        assertEquals(0, res.size());
     }
 
     @Test

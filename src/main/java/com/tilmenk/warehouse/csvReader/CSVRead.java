@@ -25,7 +25,7 @@ public class CSVRead {
         } catch (Exception e) {
             System.err.println(e.getCause() + " // " + e.getMessage());
         }
-        if (readStrings.isEmpty()) return null;
+        if (readStrings.isEmpty()) return pokemonList;
         for (String[] strings : readStrings
         ) {
             pokemonList.add(parsePokemon(strings));
