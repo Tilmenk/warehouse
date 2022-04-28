@@ -1,6 +1,5 @@
-package com.tilmenk.warehouse.pokemon;
+package com.tilmenk.warehouse.model;
 
-import com.tilmenk.warehouse.model.Pokemon;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

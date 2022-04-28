@@ -1,10 +1,8 @@
-package com.tilmenk.warehouse.team;
+package com.tilmenk.warehouse.service;
 
 import com.tilmenk.warehouse.exceptions.PokemonNotInDbException;
 import com.tilmenk.warehouse.model.Pokemon;
 import com.tilmenk.warehouse.model.Team;
-import com.tilmenk.warehouse.service.PokemonService;
-import com.tilmenk.warehouse.service.TeamService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

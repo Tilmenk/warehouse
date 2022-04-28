@@ -1,7 +1,5 @@
-package com.tilmenk.warehouse.team;
+package com.tilmenk.warehouse.model;
 
-import com.tilmenk.warehouse.model.Pokemon;
-import com.tilmenk.warehouse.model.Team;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

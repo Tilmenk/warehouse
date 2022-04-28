@@ -1,4 +1,4 @@
-package com.tilmenk.warehouse.team;
+package com.tilmenk.warehouse.controller;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
