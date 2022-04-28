@@ -45,7 +45,7 @@ public class WarehouseConfig {
                 teamService.saveTeam(team);
             }
             // TODO Here comes the CSV-Calls
-            Pokemon pokemon = pokemonRepository.findPokemonByName("pikachu");
+            //Pokemon pokemon = pokemonService.findPokemonByName("pikachu");
             //Find All -> No doubles.
         };
     }

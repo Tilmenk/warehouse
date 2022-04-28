@@ -1,7 +1,7 @@
 package com.tilmenk.warehouse.csvReader;
 
 import com.opencsv.exceptions.CsvValidationException;
-import com.tilmenk.warehouse.pokemon.Pokemon;
+import com.tilmenk.warehouse.model.Pokemon;
 import com.tilmenk.warehouse.util.csvReader.CSVRead;
 import com.tilmenk.warehouse.util.csvReader.CustomReader;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,7 @@
 package com.tilmenk.warehouse.util.csvReader;
 
-import com.tilmenk.warehouse.pokemon.Pokemon;
+
+import com.tilmenk.warehouse.model.Pokemon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class CSVRead {
         this.reader = new CustomReader();
     }
 
-    static Pokemon parsePokemon(String[] readPokemon) {
+    public static Pokemon parsePokemon(String[] readPokemon) {
         return new Pokemon(readPokemon[0], //string name
                 readPokemon[1], //string typ1
                 readPokemon[2], //string typ2
@@ -31,7 +32,7 @@ public class CSVRead {
         );
     }
 
-    List<Pokemon> readPokemon(String path) {
+    public List<Pokemon> readPokemon(String path) {
         List<String[]> readStrings = new ArrayList<>();
         List<Pokemon> pokemonList = new ArrayList<>();
         try {

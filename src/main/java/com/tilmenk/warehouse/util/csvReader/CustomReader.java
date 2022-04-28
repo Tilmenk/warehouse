@@ -16,8 +16,7 @@ import java.util.List;
 
 public class CustomReader {
 
-    List<String[]> readLines(String path) throws CsvValidationException,
-            IOException, URISyntaxException {
+    public List<String[]> readLines(String path) throws CsvValidationException, IOException, URISyntaxException {
         Reader reader = new BufferedReader(new FileReader(path));
         CSVParser parser =
                 new CSVParserBuilder().withSeparator(';').withIgnoreQuotations(true).build();
