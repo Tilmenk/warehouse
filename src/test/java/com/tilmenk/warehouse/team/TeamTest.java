@@ -1,21 +1,36 @@
 package com.tilmenk.warehouse.team;
 
 import com.tilmenk.warehouse.pokemon.Pokemon;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.List;
+
 
 public class TeamTest {
-    
+
     @Test
-    void testConstructor() {
+    void testConstructor_Pokemon() {
         //GIVEN
         Pokemon pokemon = new Pokemon("pikachu", "Electric", "none", 60, 45,
                 49, 65, 65, 45, false);
         //WHEN
-        Team team = new Team(pokemon, pokemon, pokemon, pokemon, pokemon,
-                pokemon);
+        Team team = new Team(List.of(pokemon), "default-1");
+
         //THEN
-        assertEquals("pikachu", team.getPokemon_0().getName());
+        Assertions.assertEquals("pikachu", team.getPokemon().get(0).getName());
     }
+
+    @Test
+    void testConstructor_Name() {
+        //GIVEN
+        Pokemon pokemon = new Pokemon("pikachu", "Electric", "none", 60, 45,
+                49, 65, 65, 45, false);
+        //WHEN
+        Team team = new Team(List.of(pokemon), "default-1");
+
+        //THEN
+        Assertions.assertEquals("default-1", team.getName());
+    }
+
 }

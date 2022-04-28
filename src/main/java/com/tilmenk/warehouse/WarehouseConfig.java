@@ -32,8 +32,7 @@ public class WarehouseConfig {
                     45, 49, 65, 65, 45, false);
             Pokemon bulbasaur = new Pokemon("bulbasaur", "Grass", "Poison",
                     45, 49, 49, 65, 65, 45, false);
-            Team team = new Team(pikachu, pikachu, pikachu, pikachu, pikachu,
-                    pikachu);
+            Team team = new Team(List.of(pikachu, bulbasaur), "default-1");
             if (Objects.equals(env.getProperty("DEPLOYMENT_ENV"), "dev")) {
                 pokemonRepository.saveAll(List.of(pikachu, bulbasaur));
                 teamRepository.save(team);
