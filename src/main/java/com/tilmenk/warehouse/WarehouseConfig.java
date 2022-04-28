@@ -2,9 +2,9 @@ package com.tilmenk.warehouse;
 
 
 import com.tilmenk.warehouse.pokemon.Pokemon;
-import com.tilmenk.warehouse.pokemon.PokemonRepository;
+import com.tilmenk.warehouse.pokemon.PokemonService;
 import com.tilmenk.warehouse.team.Team;
-import com.tilmenk.warehouse.team.TeamRepository;
+import com.tilmenk.warehouse.team.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -21,9 +21,10 @@ public class WarehouseConfig {
     private Environment env;
 
     @Autowired
-    private PokemonRepository pokemonRepository;
+    private PokemonService pokemonService;
+
     @Autowired
-    private TeamRepository teamRepository;
+    private TeamService teamService;
 
     @Bean
     CommandLineRunner commandLineRunnerWarehouse() {
@@ -34,8 +35,14 @@ public class WarehouseConfig {
                     45, 49, 49, 65, 65, 45, false);
             Team team = new Team(List.of(pikachu, bulbasaur), "default-1");
             if (Objects.equals(env.getProperty("DEPLOYMENT_ENV"), "dev")) {
-                pokemonRepository.saveAll(List.of(pikachu, bulbasaur));
-                teamRepository.save(team);
+
+                //TODO: @Tilmann, hier die csv imports aufrufen -> nur
+                // pokemonService und teamService verwenden ( nicht
+                // repository )
+                
+                pokemonService.savePokemon(pikachu);
+                pokemonService.savePokemon(bulbasaur);
+                teamService.saveTeam(team);
             }
         };
     }
