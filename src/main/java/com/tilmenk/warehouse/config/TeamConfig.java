@@ -16,11 +16,15 @@ public class TeamConfig {
     @Autowired
     private PokemonRepository pokemonRepository;
 
+    @Autowired
+    private TeamRepository teamRepository;
+
     @Bean
     CommandLineRunner commandLineRunnerTeam(PokemonRepository pokemonRepository) {
 
         return args -> {
-
+            //Here all the calls are coming in.
         };
     }
+
 }
