@@ -2,21 +2,20 @@ package com.tilmenk.warehouse.csvReader;
 
 import com.tilmenk.warehouse.pokemon.Pokemon;
 import org.junit.jupiter.api.Test;
-import com.tilmenk.warehouse.csvReader.CSVRead.*;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
-import static com.tilmenk.warehouse.csvReader.CSVRead.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.tilmenk.warehouse.csvReader.CSVRead.pokemonParser;
+import static com.tilmenk.warehouse.csvReader.CSVRead.readLines;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class TestCSVRead {
 
     @Test
     void testReadLines() {
         //GIVEN
-        String path = "/test/com.tilmenk.warehouse/csvReader/testCSV.csv";
+        String path = "/src/test/com.tilmenk.warehouse/csvReader/testCSV.csv";
         //WHEN
         List<String[]> result = null;
         try {

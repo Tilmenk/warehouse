@@ -20,6 +20,10 @@ import com.tilmenk.warehouse.pokemon.Pokemon;
 
 public class CSVRead {
 
+    public CSVRead() {
+    }
+
+
     static List<String[]> readLines(String path) throws CsvValidationException, IOException, URISyntaxException {
         Reader reader = new BufferedReader(new FileReader(path));
         CSVParser parser = new CSVParserBuilder().withSeparator(';').withIgnoreQuotations(true).build();
