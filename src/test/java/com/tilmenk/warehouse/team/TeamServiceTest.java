@@ -1,8 +1,8 @@
 package com.tilmenk.warehouse.team;
 
-import com.tilmenk.warehouse.model.pokemon.Pokemon;
-import com.tilmenk.warehouse.model.team.Team;
-import com.tilmenk.warehouse.model.team.exceptions.PokemonNotInDbException;
+import com.tilmenk.warehouse.exceptions.PokemonNotInDbException;
+import com.tilmenk.warehouse.model.Pokemon;
+import com.tilmenk.warehouse.model.Team;
 import com.tilmenk.warehouse.service.PokemonService;
 import com.tilmenk.warehouse.service.TeamService;
 import org.junit.jupiter.api.Test;

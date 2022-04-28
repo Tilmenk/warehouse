@@ -1,5 +1,6 @@
-package com.tilmenk.warehouse.model.team;
+package com.tilmenk.warehouse.repository;
 
+import com.tilmenk.warehouse.model.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

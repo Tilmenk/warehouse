@@ -1,6 +1,4 @@
-package com.tilmenk.warehouse.model.team;
-
-import com.tilmenk.warehouse.model.pokemon.Pokemon;
+package com.tilmenk.warehouse.model;
 
 import javax.persistence.*;
 import java.util.List;

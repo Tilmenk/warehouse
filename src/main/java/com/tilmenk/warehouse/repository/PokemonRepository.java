@@ -1,5 +1,6 @@
-package com.tilmenk.warehouse.model.pokemon;
+package com.tilmenk.warehouse.repository;
 
+import com.tilmenk.warehouse.model.Pokemon;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

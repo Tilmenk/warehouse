@@ -1,4 +1,4 @@
-package com.tilmenk.warehouse.lib.csvReader;
+package com.tilmenk.warehouse.util.csvReader;
 
 import com.tilmenk.warehouse.pokemon.Pokemon;
 

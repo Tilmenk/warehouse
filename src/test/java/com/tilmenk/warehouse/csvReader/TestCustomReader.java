@@ -1,6 +1,6 @@
 package com.tilmenk.warehouse.csvReader;
 
-import com.tilmenk.warehouse.lib.csvReader.CustomReader;
+import com.tilmenk.warehouse.util.csvReader.CustomReader;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

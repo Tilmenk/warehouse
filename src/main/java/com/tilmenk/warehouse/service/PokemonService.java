@@ -1,8 +1,8 @@
 package com.tilmenk.warehouse.service;
 
-import com.tilmenk.warehouse.model.pokemon.Pokemon;
-import com.tilmenk.warehouse.model.pokemon.PokemonRepository;
-import com.tilmenk.warehouse.model.pokemon.exceptions.PokemonAlreadyInDbException;
+import com.tilmenk.warehouse.exceptions.PokemonAlreadyInDbException;
+import com.tilmenk.warehouse.model.Pokemon;
+import com.tilmenk.warehouse.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

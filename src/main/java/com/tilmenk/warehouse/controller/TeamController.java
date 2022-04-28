@@ -1,6 +1,6 @@
-package com.tilmenk.warehouse.control;
+package com.tilmenk.warehouse.controller;
 
-import com.tilmenk.warehouse.model.team.Team;
+import com.tilmenk.warehouse.model.Team;
 import com.tilmenk.warehouse.service.TeamService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
