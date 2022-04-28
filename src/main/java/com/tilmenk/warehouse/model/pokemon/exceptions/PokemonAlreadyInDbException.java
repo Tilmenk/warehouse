@@ -1,6 +1,6 @@
-package com.tilmenk.warehouse.pokemon.exceptions;
+package com.tilmenk.warehouse.model.pokemon.exceptions;
 
-import com.tilmenk.warehouse.pokemon.Pokemon;
+import com.tilmenk.warehouse.model.pokemon.Pokemon;
 
 public class PokemonAlreadyInDbException extends IllegalStateException {
     public PokemonAlreadyInDbException() {

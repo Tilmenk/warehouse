@@ -1,6 +1,6 @@
-package com.tilmenk.warehouse.team.exceptions;
+package com.tilmenk.warehouse.model.team.exceptions;
 
-import com.tilmenk.warehouse.pokemon.Pokemon;
+import com.tilmenk.warehouse.model.pokemon.Pokemon;
 
 public class PokemonNotInDbException extends IllegalStateException {
     public PokemonNotInDbException() {

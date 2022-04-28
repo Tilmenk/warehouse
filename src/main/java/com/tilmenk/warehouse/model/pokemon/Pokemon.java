@@ -1,4 +1,4 @@
-package com.tilmenk.warehouse.pokemon;
+package com.tilmenk.warehouse.model.pokemon;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,5 +1,7 @@
-package com.tilmenk.warehouse.pokemon;
+package com.tilmenk.warehouse.control;
 
+import com.tilmenk.warehouse.model.pokemon.Pokemon;
+import com.tilmenk.warehouse.service.PokemonService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

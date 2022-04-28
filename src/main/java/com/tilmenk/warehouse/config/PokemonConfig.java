@@ -1,4 +1,4 @@
-package com.tilmenk.warehouse.pokemon;
+package com.tilmenk.warehouse.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

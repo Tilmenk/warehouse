@@ -1,7 +1,9 @@
-package com.tilmenk.warehouse.team;
+package com.tilmenk.warehouse.service;
 
-import com.tilmenk.warehouse.pokemon.PokemonRepository;
-import com.tilmenk.warehouse.team.exceptions.PokemonNotInDbException;
+import com.tilmenk.warehouse.model.pokemon.PokemonRepository;
+import com.tilmenk.warehouse.model.team.Team;
+import com.tilmenk.warehouse.model.team.TeamRepository;
+import com.tilmenk.warehouse.model.team.exceptions.PokemonNotInDbException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

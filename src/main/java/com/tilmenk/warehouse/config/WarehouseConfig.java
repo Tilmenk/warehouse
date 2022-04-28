@@ -1,10 +1,10 @@
-package com.tilmenk.warehouse;
+package com.tilmenk.warehouse.config;
 
 
-import com.tilmenk.warehouse.pokemon.Pokemon;
-import com.tilmenk.warehouse.pokemon.PokemonService;
-import com.tilmenk.warehouse.team.Team;
-import com.tilmenk.warehouse.team.TeamService;
+import com.tilmenk.warehouse.model.pokemon.Pokemon;
+import com.tilmenk.warehouse.model.team.Team;
+import com.tilmenk.warehouse.service.PokemonService;
+import com.tilmenk.warehouse.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -38,8 +38,8 @@ public class WarehouseConfig {
 
                 //TODO: @Tilmann, hier die csv imports aufrufen -> nur
                 // pokemonService und teamService verwenden ( nicht
-                // repository )
-                
+                // repository 
+
                 pokemonService.savePokemon(pikachu);
                 pokemonService.savePokemon(bulbasaur);
                 teamService.saveTeam(team);
