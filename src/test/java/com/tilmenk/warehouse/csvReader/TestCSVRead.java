@@ -1,6 +1,8 @@
 package com.tilmenk.warehouse.csvReader;
 
 import com.opencsv.exceptions.CsvValidationException;
+import com.tilmenk.warehouse.lib.csvReader.CSVRead;
+import com.tilmenk.warehouse.lib.csvReader.CustomReader;
 import com.tilmenk.warehouse.pokemon.Pokemon;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -10,17 +12,19 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.tilmenk.warehouse.csvReader.CSVRead.parsePokemon;
+import static com.tilmenk.warehouse.lib.csvReader.CSVRead.parsePokemon;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestCSVRead {
 
     @Test
-    void testReadPokemon() throws CsvValidationException, IOException, URISyntaxException {
+    void testReadPokemon() throws CsvValidationException, IOException,
+            URISyntaxException {
         //GIVEN
         CustomReader readerMock = Mockito.mock(CustomReader.class);
         List<String[]> list = new ArrayList<>();
-        String[] readString = {"pikachu", "electric","", "60", "45", "49", "65", "65", "45","false" };
+        String[] readString = {"pikachu", "electric", "", "60", "45", "49",
+                "65", "65", "45", "false"};
         list.add(readString);
         String dummyPath = "dummy/Path";
         CSVRead reader = new CSVRead(readerMock);
@@ -32,7 +36,8 @@ class TestCSVRead {
     }
 
     @Test
-    void testReadPokemonEmpty() throws CsvValidationException, IOException, URISyntaxException {
+    void testReadPokemonEmpty() throws CsvValidationException, IOException,
+            URISyntaxException {
         //GIVEN
         CustomReader readerMock = Mockito.mock(CustomReader.class);
         List<String[]> list = new ArrayList<>();
@@ -48,9 +53,10 @@ class TestCSVRead {
     @Test
     void testPokemonParser() {
         //GIVEN
-        String[] readString = {"pikachu", "electric","", "60", "45", "49", "65", "65", "45","false" };
-        Pokemon pikachu =  new Pokemon("pikachu", "electric", "", 60, 45,
-                49, 65, 65, 45, false);
+        String[] readString = {"pikachu", "electric", "", "60", "45", "49",
+                "65", "65", "45", "false"};
+        Pokemon pikachu = new Pokemon("pikachu", "electric", "", 60, 45, 49,
+                65, 65, 45, false);
         //WHEN
         Pokemon pokemon = parsePokemon(readString);
         //THEN

@@ -1,4 +1,4 @@
-package com.tilmenk.warehouse.csvReader;
+package com.tilmenk.warehouse.lib.csvReader;
 
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
@@ -16,10 +16,13 @@ import java.util.List;
 
 public class CustomReader {
 
-    List<String[]> readLines(String path) throws CsvValidationException, IOException, URISyntaxException {
+    List<String[]> readLines(String path) throws CsvValidationException,
+            IOException, URISyntaxException {
         Reader reader = new BufferedReader(new FileReader(path));
-        CSVParser parser = new CSVParserBuilder().withSeparator(';').withIgnoreQuotations(true).build();
-        CSVReader csvreader = new CSVReaderBuilder(reader).withSkipLines(0).withCSVParser(parser).build();
+        CSVParser parser =
+                new CSVParserBuilder().withSeparator(';').withIgnoreQuotations(true).build();
+        CSVReader csvreader =
+                new CSVReaderBuilder(reader).withSkipLines(0).withCSVParser(parser).build();
         List<String[]> listOfRows = new ArrayList<>();
         String[] line;
         while ((line = csvreader.readNext()) != null) {

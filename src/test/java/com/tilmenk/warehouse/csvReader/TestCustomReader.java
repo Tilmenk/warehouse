@@ -1,10 +1,12 @@
 package com.tilmenk.warehouse.csvReader;
 
+import com.tilmenk.warehouse.lib.csvReader.CustomReader;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class TestCustomReader {
 
