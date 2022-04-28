@@ -1,6 +1,8 @@
 package com.tilmenk.warehouse.pokemon;
 
-import com.tilmenk.warehouse.pokemon.exceptions.PokemonAlreadyInDbException;
+import com.tilmenk.warehouse.model.pokemon.Pokemon;
+import com.tilmenk.warehouse.model.pokemon.exceptions.PokemonAlreadyInDbException;
+import com.tilmenk.warehouse.service.PokemonService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
