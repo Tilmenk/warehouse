@@ -17,13 +17,4 @@ public class PokemonTest {
         assertEquals("pikachu", pokemon.getName());
     }
 
-    @Test
-    void testCosts() {
-        //GIVEN
-        //WHEN
-        Pokemon pokemon = new Pokemon("pikachu", "Electric", "none", 60, 45,
-                49, 65, 65, 45, false);
-        //THEN
-        assertEquals((60 + 45 + 49 + 65 + 65 + 45) / 6, pokemon.getCosts());
-    }
 }
