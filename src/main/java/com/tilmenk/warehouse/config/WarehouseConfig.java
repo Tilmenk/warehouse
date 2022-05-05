@@ -29,11 +29,10 @@ public class WarehouseConfig {
     @Bean
     CommandLineRunner commandLineRunnerWarehouse() {
         return args -> {
-            Pokemon pikachu = new Pokemon("pikachu", "Electric", "none", 60,
-                    45, 49, 65, 65, 45, false);
-            Pokemon bulbasaur = new Pokemon("bulbasaur", "Grass", "Poison",
-                    45, 49, 49, 65, 65, 45, false);
-            Team team = new Team(List.of(pikachu, bulbasaur), "default-1");
+            Pokemon pikachu = new Pokemon("pikachu", "Electric", "none", 60, 45, 49, 65, 65, 45, false);
+            Pokemon bulbasaur = new Pokemon("bulbasaur", "Grass", "Poison", 45, 49, 49, 65, 65, 45, false);
+            Pokemon moltres = new Pokemon("moltres", "Grass", "Poison", 45, 49, 49, 65, 65, 45, true);
+            Team team = new Team(List.of(pikachu, bulbasaur, pikachu, bulbasaur, pikachu, bulbasaur), "default-1");
             if (Objects.equals(env.getProperty("DEPLOYMENT_ENV"), "dev")) {
 
                 //TODO: @Tilmann, hier die csv imports aufrufen -> nur
@@ -42,6 +41,7 @@ public class WarehouseConfig {
 
                 pokemonService.savePokemon(pikachu);
                 pokemonService.savePokemon(bulbasaur);
+                pokemonService.savePokemon(moltres);
                 teamService.saveTeam(team);
             }
             // TODO Here comes the CSV-Calls
