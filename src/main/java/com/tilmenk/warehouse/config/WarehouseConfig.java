@@ -3,6 +3,7 @@ package com.tilmenk.warehouse.config;
 
 import com.tilmenk.warehouse.model.Pokemon;
 import com.tilmenk.warehouse.model.Team;
+import com.tilmenk.warehouse.repository.PokemonRepository;
 import com.tilmenk.warehouse.service.PokemonService;
 import com.tilmenk.warehouse.service.TeamService;
 import com.tilmenk.warehouse.util.csvReader.CustomReader;
@@ -12,7 +13,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static com.tilmenk.warehouse.util.csvReader.CSVRead.parsePokemon;
 
@@ -24,6 +27,9 @@ public class WarehouseConfig {
 
     @Autowired
     private PokemonService pokemonService;
+
+    @Autowired
+    private PokemonRepository pokemonRepository;
 
     @Autowired
     private TeamService teamService;
@@ -47,26 +53,38 @@ public class WarehouseConfig {
 
             CustomReader customReader = new CustomReader();
             try {
-                List<String[]> result = customReader.readLines("src/main" +
-                        "/resources" + "/csv" + "/pokemon_1.csv");
-                result.remove(0);
-                for (String[] stringArr : result) {
-                    System.out.println("------------------ STRING ARRAY ");
-                    for (String string : stringArr) {
-                        System.out.println(string);
-                    }
+                List<String[]> pokemonLines = customReader.readLines("src" +
+                        "/main" + "/resources" + "/csv" + "/pokemon_1.csv");
+                List<String[]> teamLines =
+                        customReader.readLines("src/main" + "/resources" +
+                                "/csv" + "/teams_1.csv");
+                pokemonLines.remove(0);
+                teamLines.remove(0);
+                for (String[] stringArr : pokemonLines) {
                     pokemonService.savePokemon(parsePokemon(stringArr));
                 }
 
+                for (String[] stringArr : teamLines) {
+                    List<String> stringArrAsList =
+                            new ArrayList<>(List.of(stringArr));
+                    String teamName = stringArrAsList.get(1);
+                    stringArrAsList.remove(0);
+                    stringArrAsList.remove(0);
+                    List<Pokemon> pokemonInTeam = new ArrayList<>();
+
+                    for (String pokeName : stringArrAsList) {
+                        Optional<Pokemon> pokemon =
+                                pokemonRepository.findPokemonByName(pokeName);
+                        assert pokemon.isPresent();
+                        pokemonInTeam.add(pokemon.get());
+                    }
+                    Team teamToAdd = new Team(pokemonInTeam, teamName);
+                    teamService.saveTeam(teamToAdd);
+                }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
 
-           /* pokemonService.savePokemon(pikachu);
-            pokemonService.savePokemon(bulbasaur);
-            pokemonService.savePokemon(moltres);*/
-            //teamService.saveTeam(team);
-            // }
 
             Team teamFromReadPokemon =
                     new Team(List.of(pokemonService.getPokemon().get(0),

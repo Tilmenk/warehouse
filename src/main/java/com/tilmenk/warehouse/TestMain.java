@@ -1,10 +1,10 @@
 package com.tilmenk.warehouse;
 
+import com.tilmenk.warehouse.model.Pokemon;
 import com.tilmenk.warehouse.util.csvReader.CustomReader;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import static com.tilmenk.warehouse.util.csvReader.CSVRead.parsePokemon;
 
 public class TestMain {
 
@@ -12,15 +12,28 @@ public class TestMain {
     public static void main(String[] args) {
         CustomReader customReader = new CustomReader();
         try {
-            List<String[]> result = customReader.readLines("src/main" +
-                    "/resources" + "/csv" + "/pokemon_1.csv");
-            result.remove(0);
-            for (String[] stringArr : result) {
-                System.out.println("------------------ STRING ARRAY ");
-                for (String string : stringArr) {
-                    System.out.println(string);
+            List<String[]> teamLines = customReader.readLines("src/main" +
+                    "/resources" + "/csv" + "/teams_1.csv");
+            teamLines.remove(0);
+
+            for (String[] stringArr : teamLines) {
+                List<String> stringArrAsList =
+                        new ArrayList<>(List.of(stringArr));
+                String teamName = stringArrAsList.get(1);
+                stringArrAsList.remove(0);
+                stringArrAsList.remove(0);
+                List<Pokemon> pokemonInTeam = new ArrayList<>();
+                System.out.println("-----------------");
+                System.out.println(teamName);
+                for (String pokeName : stringArrAsList) {
+                    System.out.println(pokeName);
+                    //Optional<Pokemon> pokemon =
+                    //pokemonRepository.findPokemonByName(pokeName);
+                    //assert pokemon.isPresent();
+                    //pokemonInTeam.add(pokemon.get());
                 }
-                System.out.println(parsePokemon(stringArr));
+                // Team teamToAdd = new Team(pokemonInTeam, teamName);
+                // teamService.saveTeam(teamToAdd);
             }
 
         } catch (Exception e) {

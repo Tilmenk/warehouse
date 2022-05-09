@@ -18,6 +18,11 @@ public class CSVRead {
         this.reader = new CustomReader();
     }
 
+
+   /* public static Team parseTeam(String[] readTeam) {
+        return new Pokemon(readTeam[1]);
+    }*/
+
     public static Pokemon parsePokemon(String[] readPokemon) {
         return new Pokemon(readPokemon[1], //string name
                 readPokemon[2], //string typ1
