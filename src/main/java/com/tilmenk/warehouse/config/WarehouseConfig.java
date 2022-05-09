@@ -5,6 +5,7 @@ import com.tilmenk.warehouse.model.Pokemon;
 import com.tilmenk.warehouse.model.Team;
 import com.tilmenk.warehouse.service.PokemonService;
 import com.tilmenk.warehouse.service.TeamService;
+import com.tilmenk.warehouse.util.csvReader.CustomReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 import java.util.List;
+
+import static com.tilmenk.warehouse.util.csvReader.CSVRead.parsePokemon;
 
 @Configuration
 public class WarehouseConfig {
@@ -42,10 +45,26 @@ public class WarehouseConfig {
             // pokemonService und teamService verwenden ( nicht
             // repository
 
-            pokemonService.savePokemon(pikachu);
+            CustomReader customReader = new CustomReader();
+            try {
+                List<String[]> result = customReader.readLines("src/main" +
+                        "/resources" + "/csv" + "/pokemon_1.csv");
+                result.remove(0);
+                for (String[] stringArr : result) {
+                    System.out.println("------------------ STRING ARRAY ");
+                    for (String string : stringArr) {
+                        System.out.println(string);
+                    }
+                    pokemonService.savePokemon(parsePokemon(stringArr));
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+           /* pokemonService.savePokemon(pikachu);
             pokemonService.savePokemon(bulbasaur);
-            pokemonService.savePokemon(moltres);
-            teamService.saveTeam(team);
+            pokemonService.savePokemon(moltres);*/
+            //teamService.saveTeam(team);
             // }
             // TODO Here comes the CSV-Calls
             //Pokemon pokemon = pokemonService.findPokemonByName("pikachu");
