@@ -19,16 +19,16 @@ public class CSVRead {
     }
 
     public static Pokemon parsePokemon(String[] readPokemon) {
-        return new Pokemon(readPokemon[0], //string name
-                readPokemon[1], //string typ1
-                readPokemon[2], //string typ2
-                Integer.parseInt(readPokemon[3]), //Int health
-                Integer.parseInt(readPokemon[4]), // Int attack
-                Integer.parseInt(readPokemon[5]), //Int defense
-                Integer.parseInt(readPokemon[6]), //Int attack_sp
-                Integer.parseInt(readPokemon[7]), //Int defense_sp
-                Integer.parseInt(readPokemon[8]), //Int speed
-                Boolean.parseBoolean(readPokemon[9]) //Boolean legendary
+        return new Pokemon(readPokemon[1], //string name
+                readPokemon[2], //string typ1
+                readPokemon[3], //string typ2
+                Integer.parseInt(readPokemon[4]), //Int health
+                Integer.parseInt(readPokemon[5]), // Int attack
+                Integer.parseInt(readPokemon[6]), //Int defense
+                Integer.parseInt(readPokemon[7]), //Int attack_sp
+                Integer.parseInt(readPokemon[8]), //Int defense_sp
+                Integer.parseInt(readPokemon[9]), //Int speed
+                Boolean.parseBoolean(readPokemon[10]) //Boolean legendary
         );
     }
 

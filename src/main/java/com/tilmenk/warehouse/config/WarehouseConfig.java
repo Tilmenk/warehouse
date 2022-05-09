@@ -40,7 +40,7 @@ public class WarehouseConfig {
             Team team = new Team(List.of(pikachu, bulbasaur, pikachu,
                     bulbasaur, pikachu, bulbasaur), "default-1");
             //if (Objects.equals(env.getProperty("DEPLOYMENT_ENV"), "dev")) {
-
+            System.out.println(env.getProperty("HENK_ENV"));
             //TODO: @Tilmann, hier die csv imports aufrufen -> nur
             // pokemonService und teamService verwenden ( nicht
             // repository
@@ -57,6 +57,7 @@ public class WarehouseConfig {
                     }
                     pokemonService.savePokemon(parsePokemon(stringArr));
                 }
+
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
@@ -66,6 +67,16 @@ public class WarehouseConfig {
             pokemonService.savePokemon(moltres);*/
             //teamService.saveTeam(team);
             // }
+
+            Team teamFromReadPokemon =
+                    new Team(List.of(pokemonService.getPokemon().get(0),
+                            pokemonService.getPokemon().get(1),
+                            pokemonService.getPokemon().get(2),
+                            pokemonService.getPokemon().get(3),
+                            pokemonService.getPokemon().get(4),
+                            pokemonService.getPokemon().get(5)), "default-1");
+            teamService.saveTeam(teamFromReadPokemon);
+
             // TODO Here comes the CSV-Calls
             //Pokemon pokemon = pokemonService.findPokemonByName("pikachu");
             //Find All -> No doubles.
